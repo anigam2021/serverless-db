@@ -8,6 +8,13 @@ phases:
     commands:
       # Discover and run unit tests in the '__tests__' directory
       - npm run test
+reports:
+  jest_reports:
+    files:
+      - unitest-report
+    file-format: JUNITXML
+    base-directory: testreport
+
       # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
       - npm prune --production
   build:
@@ -17,3 +24,4 @@ phases:
 artifacts:
   files:
     - template-export.yml
+
