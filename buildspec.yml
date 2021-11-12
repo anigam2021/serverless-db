@@ -4,10 +4,11 @@ phases:
     commands:
       # Install all dependencies (including dependencies for running tests)
       - npm install
+      - npm install --save-dev jest-junit
+
   pre_build:
     commands:
       # Discover and run unit tests in the '__tests__' directory
-      - npm install --save-dev jest-junit
       - npm run test
       # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
       - npm prune --production
